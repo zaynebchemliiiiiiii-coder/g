@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | healthylifestyle</title>
+<meta name="description" content="Contactez healthylifestyle pour une question sur nos produits ou pour demander un conseil gratuit.">
+<link rel="icon" href="images/cat-conseils.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="contact"contact>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<!-- Menu principal (identique sur toutes les pages) -->
+<header class="site-header"><div class="wrap bar">
+  <a class="logo" href="index.html" aria-label="healthylifestyle, accueil"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M6 24C6 12 14 5 27 5c0 12-7 20-17 20-1.5 0-3-.3-4-1z" fill="#5A3B28"/><path d="M6 27C10 19 15 14 21 11" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg><span>healthylifestyle</span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" class="nav" aria-label="Navigation principale"><ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li class="has-sub"><a href="produits.html">Produits et conseils</a>
+      <ul class="sub">
+        <li><a href="categorie-sans-gluten.html">Sans gluten</a></li>
+        <li><a href="categorie-sans-sucre.html">Sans sucre ajouté</a></li>
+        <li><a href="categorie-conseils.html">Conseils gratuits</a></li>
+      </ul></li>
+    <li><a href="a-propos.html">À propos</a></li>
+    <li><a href="contact.html" aria-current="page">Contact</a></li>
+    <li id="admin-link" hidden><a href="admin.html">Admin</a></li>
+  </ul></nav>
+  <div class="tools"><a id="account-link" href="login.html">Compte</a>
+    <a href="panier.html" aria-label="Panier">Panier <span id="cart-count" class="badge">0</span></a></div>
+</div></header>
+<main id="contenu">
+
+<nav class="crumbs wrap" aria-label="Fil d’Ariane"><ol><li><a href="index.html">Accueil</a></li><li>Contact</li></ol></nav>
+<div class="wrap page-head"><h1>Contact</h1><p class="muted">Une question sur un produit ? Un conseil à demander ? Écrivez-nous.</p></div>
+<section class="wrap"><div class="two">
+  <form class="form" id="contact-form" novalidate>
+    <p class="form-error" role="alert" hidden></p>
+    <div class="field"><label for="c-name">Nom</label><input id="c-name" name="name" autocomplete="name" required></div>
+    <div class="field"><label for="c-email">Adresse e-mail</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+    <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" rows="5" required></textarea></div>
+    <button class="btn" type="submit">Envoyer</button>
+    <p class="form-ok" id="contact-ok" role="status" hidden>Formulaire de démonstration : votre message n’a pas été envoyé. Utilisez les coordonnées ci-contre.</p>
+  </form>
+  <div>
+    <h2>Nos coordonnées</h2>
+    <!-- À COMPLÉTER avec vos vraies informations -->
+    <p>Téléphone / WhatsApp : <strong>[à renseigner]</strong></p>
+    <p>E-mail : <strong>[à renseigner]</strong></p>
+    <p>Adresse : <strong>[à renseigner]</strong></p>
+    <p>Horaires : <strong>[à renseigner]</strong></p>
+    <p>Réseaux sociaux : <strong>[à renseigner]</strong></p>
+    <p class="muted">Livraison dans toute la Tunisie.</p>
+  </div></div></section>
+
+</main>
+<!-- Pied de page -->
+<footer class="site-footer"><div class="wrap">
+  <div class="foot">
+    <div><h2>healthylifestyle</h2><p>Produits sans gluten et sans sucre ajouté, et conseils gratuits, pour les sportifs de toute la Tunisie.</p></div>
+    <div><h2>Boutique</h2><ul><li><a href="categorie-sans-gluten.html">Sans gluten</a></li><li><a href="categorie-sans-sucre.html">Sans sucre ajouté</a></li><li><a href="categorie-conseils.html">Conseils gratuits</a></li></ul></div>
+    <div><h2>Le site</h2><ul><li><a href="a-propos.html">À propos</a></li><li><a href="contact.html">Contact</a></li><li><a href="panier.html">Mon panier</a></li><li><a href="compte.html">Mon compte</a></li></ul></div>
+  </div>
+  <p class="legal">Paiement en mode démonstration : aucun paiement réel n’est effectué. Les conseils sont généraux et ne remplacent pas l’avis d’un professionnel de santé.</p>
+</div></footer>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="supabase-client.js"></script>
+<script defer src="supabase-shop.js"></script>
+<script defer src="catalog.js"></script>
+<script defer src="script.js"></script>
+</body>
+</html>

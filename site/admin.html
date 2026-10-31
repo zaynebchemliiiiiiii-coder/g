@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administration | healthylifestyle</title>
+<meta name="description" content="Gestion des commandes et des produits healthylifestyle.">
+<link rel="icon" href="images/cat-conseils.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="admin">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<!-- Menu principal (identique sur toutes les pages) -->
+<header class="site-header"><div class="wrap bar">
+  <a class="logo" href="index.html" aria-label="healthylifestyle, accueil"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M6 24C6 12 14 5 27 5c0 12-7 20-17 20-1.5 0-3-.3-4-1z" fill="#5A3B28"/><path d="M6 27C10 19 15 14 21 11" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg><span>healthylifestyle</span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" class="nav" aria-label="Navigation principale"><ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li class="has-sub"><a href="produits.html">Produits et conseils</a>
+      <ul class="sub">
+        <li><a href="categorie-sans-gluten.html">Sans gluten</a></li>
+        <li><a href="categorie-sans-sucre.html">Sans sucre ajouté</a></li>
+        <li><a href="categorie-conseils.html">Conseils gratuits</a></li>
+      </ul></li>
+    <li><a href="a-propos.html">À propos</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li id="admin-link" hidden><a href="admin.html" aria-current="page">Admin</a></li>
+  </ul></nav>
+  <div class="tools"><a id="account-link" href="login.html">Compte</a>
+    <a href="panier.html" aria-label="Panier">Panier <span id="cart-count" class="badge">0</span></a></div>
+</div></header>
+<main id="contenu">
+
+<div class="wrap page-head"><h1>Administration</h1></div>
+<div class="wrap" id="adm-gate"><p class="muted">Vérification de votre session…</p></div>
+<div class="wrap" id="adm-main" hidden>
+  <section aria-labelledby="h-ord"><h2 id="h-ord">Gestion des commandes</h2>
+    <div class="toolbar">
+      <button type="button" class="btn btn-ghost" id="ord-refresh">Actualiser</button>
+      <label for="ord-filter">Statut</label>
+      <select id="ord-filter"><option value="">Tous les statuts</option><option value="nouvelle">Nouvelle</option><option value="en_preparation">En préparation</option><option value="terminee">Terminée</option><option value="annulee">Annulée</option></select>
+    </div>
+    <p id="ord-msg" role="status" hidden></p>
+    <div id="ord-list"></div>
+    <p><button type="button" class="btn btn-ghost" id="ord-more" hidden>Chargement de la suite</button></p>
+  </section>
+  <section aria-labelledby="prod-title"><h2 id="prod-title">Ajouter un produit</h2>
+    <p><button type="button" class="btn btn-ghost" id="prod-new">Nouveau produit</button></p>
+    <form class="form" id="prod-form" data-mode="new" novalidate>
+      <div class="field"><label for="p-id">Identifiant (minuscules et tirets)</label><input id="p-id" name="id" required></div>
+      <div class="field"><label for="p-name">Nom</label><input id="p-name" name="name" required></div>
+      <div class="row"><div class="field"><label for="p-cat">Catégorie</label><select id="p-cat" name="category"><option value="sans-gluten">Sans gluten</option><option value="sans-sucre">Sans sucre ajouté</option></select></div>
+        <div class="field"><label for="p-price">Prix en DT</label><input id="p-price" name="price" inputmode="decimal" required></div></div>
+      <div class="field"><label for="p-img">Image (fichier du dossier images/ ou URL https)</label><input id="p-img" name="image" placeholder="images/mon-produit.svg" required></div>
+      <div class="field"><label for="p-desc">Description</label><textarea id="p-desc" name="description" rows="3" required></textarea></div>
+      <div class="field"><label for="p-feat">Caractéristiques (une par ligne)</label><textarea id="p-feat" name="features" rows="3"></textarea></div>
+      <div class="check"><input id="p-av" name="available" type="checkbox" checked><label for="p-av">Visible dans la boutique</label></div>
+      <p id="prod-msg" role="status" hidden></p>
+      <button class="btn" type="submit">Enregistrer le produit</button>
+    </form>
+    <h2 style="margin-top:2rem">Produits enregistrés</h2><div id="prod-list"></div>
+  </section>
+</div>
+
+</main>
+<!-- Pied de page -->
+<footer class="site-footer"><div class="wrap">
+  <div class="foot">
+    <div><h2>healthylifestyle</h2><p>Produits sans gluten et sans sucre ajouté, et conseils gratuits, pour les sportifs de toute la Tunisie.</p></div>
+    <div><h2>Boutique</h2><ul><li><a href="categorie-sans-gluten.html">Sans gluten</a></li><li><a href="categorie-sans-sucre.html">Sans sucre ajouté</a></li><li><a href="categorie-conseils.html">Conseils gratuits</a></li></ul></div>
+    <div><h2>Le site</h2><ul><li><a href="a-propos.html">À propos</a></li><li><a href="contact.html">Contact</a></li><li><a href="panier.html">Mon panier</a></li><li><a href="compte.html">Mon compte</a></li></ul></div>
+  </div>
+  <p class="legal">Paiement en mode démonstration : aucun paiement réel n’est effectué. Les conseils sont généraux et ne remplacent pas l’avis d’un professionnel de santé.</p>
+</div></footer>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="supabase-client.js"></script>
+<script defer src="supabase-shop.js"></script>
+<script defer src="catalog.js"></script>
+<script defer src="script.js"></script>
+<script defer src="admin.js"></script>
+</body>
+</html>
